@@ -10,7 +10,7 @@ namespace NeosIT.Exchange.GenericExchangeTransportAgent.Plugins.Common.Impl.Exte
         public static void UploadFile(this WebRequest webRequest, Stream stream, string httpMethod, string fileName, string paramName)
         {
             const string linebreak = "\r\n";
-            var mime = Utils.Win32.GetMimeFromStream(stream);
+            var mime = Utils.Mime.GetMimeFromStream(stream);
 
             string boundary = "---------------------------" + DateTime.Now.Ticks.ToString("x");
             byte[] trailer = Encoding.ASCII.GetBytes(linebreak + "--" + boundary + "--" + linebreak);
